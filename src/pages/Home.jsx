@@ -1,9 +1,12 @@
 import React from 'react'
+import Hero from '../components/Hero'
+import useTitle from '../hooks/useTitle'
 
 const Home = () => {
+  useTitle("Home")
   return (
     <div>
-      <h1>This is home</h1>
+      <Hero></Hero>
     </div>
   )
 }
