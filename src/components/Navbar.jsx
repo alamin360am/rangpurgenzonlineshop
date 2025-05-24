@@ -12,9 +12,10 @@ const Navbar = () => {
     const [visible, setVisible] = useState(false)
     
   return (
-    <div className='flex items-center justify-between font-medium bg-white'>
-      
-    <img src={assets.logo} className='w-36' alt="logo" />
+    <div className='fixed top-0 left-0 z-50 w-full flex items-center justify-between font-medium bg-white shadow px-8 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <Link to={"/"}>
+        <img src={assets.logo} className='w-36' alt="logo" />
+    </Link>
 
     <ul className='hidden sm:flex gap-5 test-sm text-gray-700'>
         <NavLink to={'/'} className='flex flex-col items-center gap-1'>
@@ -54,7 +55,7 @@ const Navbar = () => {
         <IoMenu onClick={()=>setVisible(true)}  className='text-xl sm:hidden cursor-pointer'/>
     </div>
         {/* Sidebar menu for small screen */}
-        <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`}>
+        <div className={`fixed inset-0 z-40 bg-white transition-all duration-300 ease-in-out ${visible ? 'w-full' : 'w-0'} overflow-y-auto`}>
             <div className='flex flex-col text-gray-600 p-3 gap-4'>
                 <div onClick={()=> setVisible(false)} className='flex items-center gap-4 cursor-pointer'>
                     <IoArrowBackOutline />

@@ -5,6 +5,8 @@ const Hero = () => {
   return (
     <div>
       <Carousel />
+      <div className='pt-10'>
+      </div>
     </div>
   )
 }

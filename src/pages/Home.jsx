@@ -1,11 +1,11 @@
 import React from 'react'
 import Hero from '../components/Hero'
-import useTitle from '../hooks/useTitle'
+import useTitle from '../Hooks/useTitle'
 
 const Home = () => {
   useTitle("Home")
   return (
-    <div>
+    <div className='pt-4'>
       <Hero></Hero>
     </div>
   )

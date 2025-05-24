@@ -15,7 +15,7 @@ const Carousel = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         goToNext();
-      }, 5000); // Change slide every 5 seconds
+      }, 3000); // Change slide every 3 seconds
     }
     return () => clearInterval(interval);
   });
@@ -25,7 +25,7 @@ const Carousel = () => {
     const newIndex = isFirstItem ? items.length - 1 : currentIndex - 1;
     setCurrentIndex(newIndex);
     setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000); // Resume auto-play after 10 seconds
+    setTimeout(() => setIsAutoPlaying(true), 5000); // Resume auto-play after 5 seconds
   };
 
   const goToNext = () => {
