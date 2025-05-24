@@ -1,5 +1,6 @@
 import React from 'react'
 import useTitle from '../Hooks/useTitle'
+import SectionHeading from '../components/SectionHeading'
 
 const Collection = () => {
   
@@ -7,7 +8,7 @@ const Collection = () => {
 
   return (
     <div>
-      collection
+      <SectionHeading heading={"Collection"}></SectionHeading>
     </div>
   )
 }

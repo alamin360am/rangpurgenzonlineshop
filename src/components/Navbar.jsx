@@ -12,7 +12,7 @@ const Navbar = () => {
     const [visible, setVisible] = useState(false)
     
   return (
-    <div className='flex items-center justify-between font-medium'>
+    <div className='flex items-center justify-between font-medium bg-white'>
       
     <img src={assets.logo} className='w-36' alt="logo" />
 
