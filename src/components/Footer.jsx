@@ -1,7 +1,5 @@
-// src/components/Footer.jsx
-
 import React from 'react'
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'; // সোশ্যাল মিডিয়ার আইকন ব্যবহারের জন্য
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa'; 
 
 const Footer = () => {
   return (

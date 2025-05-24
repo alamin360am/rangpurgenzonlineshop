@@ -10,6 +10,7 @@ export const products = [
     name: "Men Cotton T-Shirt",
     description: "Soft and breathable cotton t-shirt",
     price: 250,
+    discountPrice: 199,
     image: [
       "https://images.unsplash.com/photo-1666358084687-14347fbf364c",
       "https://images.unsplash.com/photo-1666358777563-91164fe0034c",
@@ -20,13 +21,15 @@ export const products = [
     sizes: ["M", "L", "XL"],
     sell: 18,
     slider: true,
-    date: "2025-05-23T10:00:00Z"
+    date: "2025-05-23T10:00:00Z",
+    rating: 4.3
   },
   {
     _id: "p002",
     name: "Men Polo Shirt",
     description: "Classic polo for everyday wear",
     price: 320,
+    discountPrice: 270,
     image: [
       "https://images.unsplash.com/photo-1726050071326-b7a80d5a646f",
       "https://images.unsplash.com/photo-1726050071499-3e30b48c57f8",
@@ -37,13 +40,15 @@ export const products = [
     sizes: ["M", "L", "XL", "XXL"],
     sell: 30,
     slider: false,
-    date: "2025-05-22T09:15:00Z"
+    date: "2025-05-22T09:15:00Z",
+    rating: 4.5
   },
   {
     _id: "p003",
     name: "Men Casual Hoodie",
     description: "Comfortable and stylish hoodie",
     price: 650,
+    discountPrice: 549,
     image: [
       "https://images.unsplash.com/photo-1685328403783-00925c2a4301",
       "https://images.unsplash.com/photo-1685328403755-de1d57e12e63",
@@ -54,13 +59,15 @@ export const products = [
     sizes: ["M", "L", "XL"],
     sell: 12,
     slider: true,
-    date: "2025-05-22T11:00:00Z"
+    date: "2025-05-22T11:00:00Z",
+    rating: 4.0
   },
   {
     _id: "p004",
     name: "Men Jeans Pant",
     description: "Durable and trendy jeans",
     price: 700,
+    discountPrice: 599,
     image: [
       "https://images.unsplash.com/photo-1655002917654-b19832de1bc3",
       "https://images.unsplash.com/photo-1681274521165-c76f4136cd5c",
@@ -71,13 +78,15 @@ export const products = [
     sizes: ["M", "L", "XL", "XXL"],
     sell: 25,
     slider: false,
-    date: "2025-05-22T12:30:00Z"
+    date: "2025-05-22T12:30:00Z",
+    rating: 4.2
   },
   {
     _id: "p005",
     name: "Women Kurti",
     description: "Traditional cotton kurti",
     price: 480,
+    discountPrice: 399,
     image: [
       "https://images.unsplash.com/flagged/photo-1572491548641-97c054348656",
       "https://images.unsplash.com/flagged/photo-1572491548896-76425fbd36cb",
@@ -88,13 +97,15 @@ export const products = [
     sizes: ["S", "M", "L"],
     sell: 20,
     slider: true,
-    date: "2025-05-22T15:45:00Z"
+    date: "2025-05-22T15:45:00Z",
+    rating: 4.4
   },
   {
     _id: "p006",
     name: "Women Jeans",
     description: "High-rise blue denim",
     price: 620,
+    discountPrice: 520,
     image: [
       "https://plus.unsplash.com/premium_photo-1689371953070-10782471db47",
       "https://images.unsplash.com/photo-1598554747436-c9293d6a588f",
@@ -105,13 +116,15 @@ export const products = [
     sizes: ["M", "L", "XL"],
     sell: 27,
     slider: false,
-    date: "2025-05-21T09:30:00Z"
+    date: "2025-05-21T09:30:00Z",
+    rating: 4.6
   },
   {
     _id: "p007",
     name: "Women Sweater",
     description: "Woolen winter sweater",
     price: 820,
+    discountPrice: 699,
     image: [
       "https://images.unsplash.com/photo-1575904186983-b1afed9c39cc",
       "https://images.unsplash.com/photo-1612636676503-77f496c96ef8",
@@ -122,13 +135,15 @@ export const products = [
     sizes: ["M", "L", "XL"],
     sell: 19,
     slider: true,
-    date: "2025-05-21T12:00:00Z"
+    date: "2025-05-21T12:00:00Z",
+    rating: 4.1
   },
   {
     _id: "p008",
     name: "Kids T-Shirt",
     description: "Cartoon printed t-shirt for kids",
     price: 190,
+    discountPrice: 150,
     image: [
       "https://images.unsplash.com/photo-1739047595225-253ca081c99a",
       "https://images.unsplash.com/photo-1739047594847-19f66e6f2699",
@@ -139,13 +154,15 @@ export const products = [
     sizes: ["S", "M"],
     sell: 22,
     slider: false,
-    date: "2025-05-20T08:00:00Z"
+    date: "2025-05-20T08:00:00Z",
+    rating: 4.0
   },
   {
     _id: "p009",
     name: "Kids Pants",
     description: "Comfortable cotton pants",
     price: 210,
+    discountPrice: 170,
     image: [
       "https://images.unsplash.com/photo-1676059056793-c74679f60518",
       "https://images.unsplash.com/photo-1587421515770-5329517dfc8c",
@@ -156,13 +173,15 @@ export const products = [
     sizes: ["S", "M"],
     sell: 15,
     slider: false,
-    date: "2025-05-20T10:30:00Z"
+    date: "2025-05-20T10:30:00Z",
+    rating: 3.8
   },
   {
     _id: "p010",
     name: "Unisex Hoodie",
     description: "Unisex soft hoodie for all",
     price: 780,
+    discountPrice: 649,
     image: [
       "https://images.unsplash.com/photo-1602364478728-13c1e15542f9",
       "https://images.unsplash.com/photo-1701673072655-0b7c89ec2138",
@@ -173,7 +192,8 @@ export const products = [
     sizes: ["S", "M", "L", "XL"],
     sell: 40,
     slider: true,
-    date: "2025-05-20T13:00:00Z"
+    date: "2025-05-20T13:00:00Z",
+    rating: 4.7
   }
 ];
 
