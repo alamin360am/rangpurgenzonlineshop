@@ -1,4 +1,5 @@
 import React from 'react';
+import useTitle from '../Hooks/useTitle';
 
 const About = () => {
   const teamMembers = [
@@ -24,6 +25,8 @@ const About = () => {
       bio: 'ডিজিটাল মার্কেটিং স্ট্র্যাটেজি এবং ব্র্যান্ডিং বিশেষজ্ঞ।'
     }
   ];
+
+  useTitle("About");
 
   return (
     <div className="min-h-screen bg-gray-50">
