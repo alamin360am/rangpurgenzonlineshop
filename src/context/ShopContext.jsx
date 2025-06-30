@@ -4,7 +4,7 @@ import { ShopContext } from "./Context";
 
 const ShopContextProvider = ({children}) => {
     const [search, setSearch] = useState("");
-    const [showSearch, setShowSearch] = useState(true);
+    const [showSearch, setShowSearch] = useState(false);
 
     const value = {products, search, setSearch, showSearch, setShowSearch}
 

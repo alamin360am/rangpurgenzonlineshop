@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import {assets} from '../assets/assets'
 import {Link, NavLink} from 'react-router-dom'
 import { IoSearchOutline } from "react-icons/io5";
@@ -6,10 +6,13 @@ import { IoPersonCircleOutline } from "react-icons/io5";
 import { IoCartOutline } from "react-icons/io5";
 import { IoMenu } from "react-icons/io5";
 import { IoArrowBackOutline } from "react-icons/io5";
+import { ShopContext } from '../context/Context';
 
 
 const Navbar = () => {
-    const [visible, setVisible] = useState(false)
+    const [visible, setVisible] = useState(false);
+
+    const {showSearch, setShowSearch} = useContext(ShopContext);
     
   return (
     <div className='fixed top-0 left-0 z-50 w-full flex items-center justify-between font-medium bg-white shadow px-8 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -37,7 +40,7 @@ const Navbar = () => {
     </ul>
 
     <div className='flex items-center gap-6'>
-        <IoSearchOutline className='text-xl cursor-pointer' />
+        <IoSearchOutline onClick={() => setShowSearch(!showSearch)} className='text-xl cursor-pointer text-gray-500 hover:text-gray-900' />
         <div className="group relative">
             <IoPersonCircleOutline className='text-xl cursor-pointer' />
             <div className='group-hover:block hidden absolute dropdown-menu right-0 pt-4'>
