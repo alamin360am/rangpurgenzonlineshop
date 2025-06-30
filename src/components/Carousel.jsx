@@ -9,6 +9,19 @@ const Carousel = () => {
   const {products} = useContext(ShopContext);
   const items = products.filter((product) => product.slider == true);
 
+  const sliderBG = (category) => {
+    if(category === "Men") {
+      return "#a29bfe"
+    } 
+    
+    if(category === "Women") {
+      return "#fd79a8"
+    } 
+    if(category === "Kids") {
+      return "#fab1a0"
+    }
+    }
+
   // Auto-advance the carousel
   useEffect(() => {
     let interval;
@@ -38,11 +51,11 @@ const Carousel = () => {
     setCurrentIndex(index);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000); // Resume auto-play after 10 seconds
-  };
+  };  
 
   return (
-    <div className="relative max-w-6xl mx-auto overflow-hidden rounded-lg shadow-xl">
-      <div className="flex flex-col md:flex-row">
+    <div className="flex justify-center md:pt-30 md:pb-12 pt-20 relative mx-auto overflow-hidden rounded-lg shadow-xl bg-[#fdcb6e]">
+      <div className="flex flex-col w-6xl md:flex-row">
         {/* Left side - Image */}
         <div className="w-full md:w-1/2 h-64 md:h-96">
           <img 
@@ -53,11 +66,11 @@ const Carousel = () => {
         </div>
         
         {/* Right side - Content */}
-        <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-gray-50 rounded-b-lg md:rounded-r-lg md:rounded-bl-none">
+        <div className={`w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-[${sliderBG(items[currentIndex].category)}] rounded-b-lg md:rounded-r-lg md:rounded-bl-none`}>
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
             {items[currentIndex].name}
           </h2>
-          <p className="text-gray-600 mb-6 leading-relaxed">
+          <p className="text-gray-50 mb-6 leading-relaxed">
             {items[currentIndex].description}
           </p>
           <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 self-start">

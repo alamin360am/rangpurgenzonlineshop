@@ -3,11 +3,7 @@ import Carousel from './Carousel'
 
 const Hero = () => {
   return (
-    <div>
-      <Carousel />
-      <div className='pt-10'>
-      </div>
-    </div>
+    <div></div>
   )
 }
 

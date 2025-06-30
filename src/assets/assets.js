@@ -172,7 +172,7 @@ export const products = [
     subCategory: "Bottomwear",
     sizes: ["S", "M"],
     sell: 15,
-    slider: false,
+    slider: true,
     date: "2025-05-20T10:30:00Z",
     rating: 3.8
   },
@@ -191,7 +191,7 @@ export const products = [
     subCategory: "Winterwear",
     sizes: ["S", "M", "L", "XL"],
     sell: 40,
-    slider: true,
+    slider: false,
     date: "2025-05-20T13:00:00Z",
     rating: 4.7
   }

@@ -11,11 +11,11 @@ const LatestProduct = () => {
   return (
     <div>
       <SectionHeading heading={"Our Latest Product"} />
-      <section className="py-12 bg-gray-50">
+      <section className="py-12 bg-gray-300/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-800 mb-2">সর্বশেষ পণ্যসমুহ</h2>
-          <p className="text-gray-600 max-w-lg mx-auto">আমাদের সর্বশেষ সংযোজন</p>
+          <h2 className="text-2xl font-bold text-gray-800 mb-2">সর্বশেষ পণ্যসমুহ</h2>
+          <p className="text-gray-900 max-w-lg mx-auto">আমাদের সর্বশেষ সংযোজন</p>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">

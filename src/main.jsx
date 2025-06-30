@@ -19,13 +19,13 @@ import NotFoundPage from "./components/NotFoundPage.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <Home />
+  },
+  {
+    // path: "/",
     element: <Main></Main>,
     errorElement: <NotFoundPage/>,
     children: [
-      {
-        path: "/",
-        element: <Home></Home>
-      },
       {
         path: "/about",
         element: <About/>
