@@ -4,6 +4,8 @@ import { ShopContext } from '../context/Context';
 import Ratting from '../components/Ratting';
 import AddToCartButton from '../components/AddToCartButton';
 import useTitle from '../hooks/useTitle';
+import RelatedProducts from '../components/RelatedProducts';
+import Title from '../components/Title';
 
 const Products = () => {
   useTitle("Product");
@@ -87,6 +89,12 @@ const Products = () => {
         <div className="flex flex-col gap-4 border border-gray-300 p-6 text-sm text-gray-500">
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde corporis ab quod debitis non neque quas voluptas magnam obcaecati voluptatem culpa pariatur laborum tempora consectetur quaerat soluta beatae aperiam iusto iure fuga facilis, cum inventore corrupti? Repellendus, numquam nisi asperiores neque porro fugit excepturi fuga, similique et, dolores dolore enim!</p>
         </div>
+      </div>
+      <div className='pt-6 pl-4 bg-orange-50'>
+        <div className='mb-4'>
+          <Title text1={"Related"} text2={"Products"} />
+        </div>
+        <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
       </div>
     </div>
   ) : <div className='opacity-0'></div>

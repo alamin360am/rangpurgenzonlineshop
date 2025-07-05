@@ -29,7 +29,6 @@ const ProductItem = ({ item }) => {
           </div>
 
           <AddToCartButton />
-          <hr className="mt-8 sm:w-4/5" />
         </div>
       </div>
     </Link>
