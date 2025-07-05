@@ -8,7 +8,8 @@ export const products = [
   {
     _id: "p001",
     name: "Men Cotton T-Shirt",
-    description: "Soft and breathable cotton t-shirt",
+    description:
+      "Experience all-day comfort with our premium men’s cotton t-shirt, made from 100% breathable cotton. Ideal for both casual outings and relaxing at home, this soft fabric ensures you stay cool and stylish throughout the day.",
     price: 250,
     discountPrice: 199,
     image: [
@@ -27,7 +28,8 @@ export const products = [
   {
     _id: "p002",
     name: "Men Polo Shirt",
-    description: "Classic polo for everyday wear",
+    description:
+      "Upgrade your everyday wardrobe with this classic men’s polo shirt, designed for style and versatility. Crafted from high-quality cotton, it offers a smooth texture and perfect fit for work, weekend, or social events.",
     price: 320,
     discountPrice: 270,
     image: [
@@ -46,7 +48,8 @@ export const products = [
   {
     _id: "p003",
     name: "Men Casual Hoodie",
-    description: "Comfortable and stylish hoodie",
+    description:
+      "Stay cozy and fashionable with our casual hoodie for men. Made with soft inner lining and durable material, it offers excellent warmth, perfect for cold days and chilly evenings. A must-have for winter layering.",
     price: 650,
     discountPrice: 549,
     image: [
@@ -65,7 +68,8 @@ export const products = [
   {
     _id: "p004",
     name: "Men Jeans Pant",
-    description: "Durable and trendy jeans",
+    description:
+      "These rugged and stylish men's jeans offer a perfect blend of durability and modern fashion. Designed to handle daily wear while keeping you trendy, the fabric provides comfort and a great fit for all-day use.",
     price: 700,
     discountPrice: 599,
     image: [
@@ -84,7 +88,8 @@ export const products = [
   {
     _id: "p005",
     name: "Women Kurti",
-    description: "Traditional cotton kurti",
+    description:
+      "Elegant and traditional, this women’s cotton kurti brings comfort and grace together. Designed with fine patterns and breathable fabric, it’s perfect for festive occasions or casual ethnic wear.",
     price: 480,
     discountPrice: 399,
     image: [
@@ -103,7 +108,8 @@ export const products = [
   {
     _id: "p006",
     name: "Women Jeans",
-    description: "High-rise blue denim",
+    description:
+      "Our high-rise women’s jeans are designed for confidence and comfort. Featuring a snug fit and stretchable denim, these jeans complement every body type and are ideal for both casual and semi-formal outfits.",
     price: 620,
     discountPrice: 520,
     image: [
@@ -122,7 +128,8 @@ export const products = [
   {
     _id: "p007",
     name: "Women Sweater",
-    description: "Woolen winter sweater",
+    description:
+      "Keep warm in style with our premium woolen women’s sweater. This soft and cozy knitwear is perfect for cold days, offering both comfort and a touch of elegance to your winter wardrobe.",
     price: 820,
     discountPrice: 699,
     image: [
@@ -141,7 +148,8 @@ export const products = [
   {
     _id: "p008",
     name: "Kids T-Shirt",
-    description: "Cartoon printed t-shirt for kids",
+    description:
+      "Add fun to your child’s wardrobe with this colorful cartoon-printed t-shirt. Made from gentle cotton, it ensures maximum comfort for active play while keeping kids stylish and happy all day long.",
     price: 190,
     discountPrice: 150,
     image: [
@@ -160,7 +168,8 @@ export const products = [
   {
     _id: "p009",
     name: "Kids Pants",
-    description: "Comfortable cotton pants",
+    description:
+      "Designed with comfort in mind, these kids' cotton pants are perfect for everyday wear. They offer a relaxed fit, breathable fabric, and are ideal for school, playtime, or home use.",
     price: 210,
     discountPrice: 170,
     image: [
@@ -179,7 +188,8 @@ export const products = [
   {
     _id: "p010",
     name: "Unisex Hoodie",
-    description: "Unisex soft hoodie for all",
+    description:
+      "Made for everyone, this soft unisex hoodie offers unbeatable warmth and comfort. Featuring a minimalist design and premium material, it’s the go-to piece for cozy days and street-style vibes.",
     price: 780,
     discountPrice: 649,
     image: [
@@ -196,6 +206,7 @@ export const products = [
     rating: 4.7
   }
 ];
+
 
 
 // export const products = [

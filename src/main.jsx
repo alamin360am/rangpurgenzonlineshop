@@ -55,7 +55,7 @@ const router = createBrowserRouter([
         element: <PlaceOrder/>
       },
       {
-        path: "/products",
+        path: "/product/:id",
         element: <Products/>
       }
     ]
