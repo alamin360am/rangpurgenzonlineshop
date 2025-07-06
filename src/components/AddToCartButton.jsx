@@ -1,9 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { ShopContext } from '../context/Context'
 
-const AddToCartButton = () => {
+const AddToCartButton = ({id, size}) => {
+  const {addToCart} = useContext(ShopContext);
   
   return (
-    <button className='bg-gray-900 text-white px-8 py-3 text-sm active:bg-gray-700 uppercase cursor-pointer'>
+    <button onClick={()=> addToCart(id, size)} className='bg-gray-900 text-white px-8 py-3 text-sm active:bg-gray-700 uppercase cursor-pointer'>
       Add to Cart
     </button>
   )

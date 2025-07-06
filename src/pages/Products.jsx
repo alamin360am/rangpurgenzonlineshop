@@ -70,7 +70,7 @@ const Products = () => {
               ))}
             </div>
           </div>
-          <AddToCartButton />
+          <AddToCartButton id={productData._id} size={size} />
           <hr className='mt-8 sm:w-4/5 text-gray-500' />
           <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
             <p>100% Original product</p>
