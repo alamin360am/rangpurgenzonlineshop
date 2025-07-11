@@ -12,7 +12,7 @@ import { ShopContext } from '../context/Context';
 const Navbar = () => {
     const [visible, setVisible] = useState(false);
 
-    const {showSearch, setShowSearch} = useContext(ShopContext);
+    const {showSearch, setShowSearch, getCartCount} = useContext(ShopContext);
     
   return (
     <div className='fixed top-0 left-0 z-50 w-full flex items-center justify-between font-medium bg-white shadow px-8 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
@@ -53,7 +53,7 @@ const Navbar = () => {
         </div>
         <Link to={'/cart'} className='relative'>
             <IoCartOutline className='text-xl' />
-            <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>10</p>
+            <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
         </Link>
         <IoMenu onClick={()=>setVisible(true)}  className='text-xl sm:hidden cursor-pointer'/>
     </div>
