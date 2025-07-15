@@ -21,7 +21,7 @@ const Carousel = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         goToNext();
-      }, 5000);
+      }, 3000);
     }
     return () => clearInterval(interval);
   }, [currentIndex, isAutoPlaying]);
