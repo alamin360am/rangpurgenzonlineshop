@@ -1,5 +1,5 @@
 import React, {  useContext, useEffect, useState } from 'react'
-import useTitle from '../Hooks/useTitle'
+import useTitle from '../hooks/useTitle'
 import SectionHeading from '../components/SectionHeading'
 import { ShopContext } from '../context/Context';
 import { MdFilterAlt, MdFilterAltOff } from "react-icons/md";

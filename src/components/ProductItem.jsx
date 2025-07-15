@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Ratting from './Ratting';
-import AddToCartButton from './AddToCartButton';
 
 const ProductItem = ({ item }) => {
   return (
@@ -20,7 +19,6 @@ const ProductItem = ({ item }) => {
 
         <div className="p-4">
           <Ratting item={item} />
-
           <h3 className="text-lg font-semibold text-gray-800 mb-1">{item.name}</h3>
 
           <div className="flex items-center mb-3">
@@ -28,7 +26,7 @@ const ProductItem = ({ item }) => {
             <span className="text-sm text-gray-500 line-through ml-2">৳{item.price}</span>
           </div>
 
-          <AddToCartButton />
+          <p className='text-center bg-gray-900 text-white px-8 py-3 text-sm active:bg-gray-700 uppercase cursor-pointer'>More Details</p>
         </div>
       </div>
     </Link>
