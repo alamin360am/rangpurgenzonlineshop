@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
 import { ShopContext } from "../context/Context";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { Link } from 'react-router-dom';
 
 const Carousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -67,43 +68,47 @@ const Carousel = () => {
           className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center rounded-b-lg md:rounded-r-lg md:rounded-bl-none transition-all duration-700 ease-in-out"
           style={{ backgroundColor: sliderBG(items[currentIndex].category) }}
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3">
+          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
             {items[currentIndex].name}
           </h2>
           <p className="text-gray-50 mb-6 leading-relaxed">
             {items[currentIndex].description}
           </p>
-          <button className="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition duration-300 self-start">
-            Shop Now
-          </button>
+          <Link
+              to={`/product/${items[currentIndex]._id}`}
+              className="inline-block text-center bg-gradient-to-r from-blue-600 to-purple-600 hover:from-purple-700 hover:to-blue-700 text-white px-6 py-3 text-sm font-semibold rounded-md shadow-md transition duration-300"
+            >View Product</Link>
 
           {/* Navigation dots */}
           <div className="flex justify-center mt-8 space-x-2">
-            {items.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full transition duration-300 ${index === currentIndex ? 'bg-blue-600' : 'bg-gray-300'}`}
-                aria-label={`Go to slide ${index + 1}`}
-              />
-            ))}
-          </div>
+              {items.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => goToSlide(idx)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    idx === currentIndex
+                      ? 'bg-gradient-to-r from-blue-600 to-purple-600 scale-125'
+                      : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
         </div>
       </div>
 
       {/* Navigation arrows */}
-      <button 
-        onClick={goToPrevious}
-        className="absolute left-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-70 transition duration-300"
-      >
-        <ChevronLeft />
-      </button>
-      <button 
-        onClick={goToNext}
-        className="absolute right-2 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-opacity-70 transition duration-300"
-      >
-        <ChevronRight />
-      </button>
+      <button
+          onClick={goToPrevious}
+          className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 backdrop-blur-md border border-gray-200 text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
+        >
+          <ChevronLeft size={20} />
+        </button>
+        <button
+          onClick={goToNext}
+          className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 backdrop-blur-md border border-gray-200 text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
+        >
+          <ChevronRight size={20} />
+        </button>
     </div>
   );
 };

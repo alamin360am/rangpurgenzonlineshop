@@ -78,7 +78,7 @@ const Collection = () => {
 
   return (
     <div>
-      <SectionHeading heading={"Collection"}></SectionHeading>
+      <SectionHeading text1={"Our"} text2={"Collection"} subtitle={"Our all collection here"}></SectionHeading>
       <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 mb-6'>
         {/* Filter Option */}
         <div className='min-w-60'>
@@ -127,7 +127,7 @@ const Collection = () => {
             </select>
           </div>
           {/* Map Product */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4 gap-y-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
             {
               filterProduct.map((item, index) => (
                 <ProductItem key={index} item={item} />

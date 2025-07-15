@@ -30,13 +30,14 @@ const Products = () => {
         <div className="md:w-1/2 p-4 md:p-8">
           <div className="relative overflow-hidden rounded-lg shadow-md mb-4">
             <img 
-              src={image} 
-              alt={productData.name} 
+              src={image ? image : null} 
+              alt={productData?.name} 
               className="w-full h-96 object-cover transition-transform duration-300 ease-in-out hover:scale-105" 
             />
           </div>
           <div className="grid grid-cols-4 gap-2 md:gap-4">
-            {productData?.image?.map((img, index) => (
+            {Array.isArray(productData.image) &&
+            productData.image.map((img, index) => (
               <div 
                 key={index}
                 onClick={() => setImage(img)}
@@ -49,9 +50,8 @@ const Products = () => {
                   className="w-20 h-20 sm:w-24 sm:h-24 object-cover transform hover:scale-105 transition-transform duration-200 ease-in-out"
                 />
               </div>
-  ))}
-</div>
-
+            ))}
+          </div>
         </div>
 
         {/* Right Column - Product Details */}
@@ -101,12 +101,15 @@ const Products = () => {
         <div className="flex flex-col gap-4 border border-gray-300 p-6 text-sm text-gray-500">
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde corporis ab quod debitis non neque quas voluptas magnam obcaecati voluptatem culpa pariatur laborum tempora consectetur quaerat soluta beatae aperiam iusto iure fuga facilis, cum inventore corrupti? Repellendus, numquam nisi asperiores neque porro fugit excepturi fuga, similique et, dolores dolore enim!</p>
         </div>
-        <div className='pt-6 pl-4'>
-         <div className='mb-4'>
+        {productData?.category && (
+          <div className='pt-6 pl-4'>
+          <div className='mb-4'>
            <Title text1={"Related"} text2={"Products"} />
-         </div>
-         <RelatedProducts category={productData.category} />
+          </div>
+          <RelatedProducts category={productData.category} />
        </div>
+        )}
+        
        </div>       
     </div>
   );
