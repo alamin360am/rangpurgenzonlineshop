@@ -29,7 +29,7 @@ import React from 'react';
 
 const SectionHeading = ({ text1, text2, subtitle }) => {
   return (
-    <div className="relative text-center my-12 px-4">
+    <div className="relative text-center py-10 px-4">
       {/* Glow background circle effect */}
       <div className="absolute inset-0 flex justify-center -z-10">
         <div className="w-40 h-40 md:w-60 md:h-60 bg-gradient-to-tr from-blue-400 via-blue-300 to-purple-400 rounded-full blur-3xl opacity-20 animate-pulse" />

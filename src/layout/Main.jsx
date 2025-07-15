@@ -11,7 +11,7 @@ const Main = () => {
       <div className="min-h-screen bg-white">      
           <Navbar />
           <SearchBar />
-        <div className="pt-20 px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+        <div className="pt-20 px-0 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
           <Outlet />
         </div>
           <Footer/>

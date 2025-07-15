@@ -102,12 +102,12 @@ const Products = () => {
           <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde corporis ab quod debitis non neque quas voluptas magnam obcaecati voluptatem culpa pariatur laborum tempora consectetur quaerat soluta beatae aperiam iusto iure fuga facilis, cum inventore corrupti? Repellendus, numquam nisi asperiores neque porro fugit excepturi fuga, similique et, dolores dolore enim!</p>
         </div>
         {productData?.category && (
-          <div className='pt-6 pl-4'>
+          <div className='pt-6 pl-0 lg:pl-4'>
           <div className='mb-4'>
            <Title text1={"Related"} text2={"Products"} />
           </div>
           <RelatedProducts category={productData.category} />
-       </div>
+        </div>
         )}
         
        </div>       

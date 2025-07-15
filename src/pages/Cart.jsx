@@ -3,6 +3,7 @@ import { ShopContext } from '../context/Context';
 import useTitle from '../hooks/useTitle';
 import { Link } from 'react-router-dom';
 import { RiDeleteBin6Line } from "react-icons/ri";
+import Title from '../components/Title';
 
 const Cart = () => {
   useTitle("Cart");
@@ -42,9 +43,9 @@ const Cart = () => {
   return (
     <div className="bg-gray-100 min-h-screen p-4 md:p-8 lg:p-12 font-sans">
       <div className="max-w-7xl mx-auto bg-white rounded-xl shadow-lg p-6 md:p-8">
-        <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 border-b border-gray-300 pb-4">
-          Your Shopping Cart
-        </h1>
+        <div className='mb-4'>
+          <Title text1={"your"} text2={"shopping cart"} />
+        </div>
 
         {isCartEmpty ? (
           <div className="flex flex-col items-center justify-center py-16">
@@ -70,17 +71,18 @@ const Cart = () => {
                 return (
                   <div
                     key={`${item._id}-${item.size}`}
-                    className="flex flex-col sm:flex-row gap-0 lg:gap-5 sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 p-4 border border-gray-200 rounded-lg shadow-sm bg-white"
+                    className="flex flex-col justify-between sm:flex-row gap-0 lg:gap-5 sm:items-center sm:space-x-4 space-y-4 sm:space-y-0 p-4 border border-gray-200 rounded-lg shadow-sm bg-white"
                   >
-                    <img
+                    <div className='flex gap-4'>
+                      <img
                       src={product.image[0]}
                       alt={product.name}
                       className="w-24 h-24 object-cover rounded-md border border-gray-200 mx-auto sm:mx-0"
                     />
 
-                    <div className="flex-1 text-center sm:text-left">
+                    <div className="flex-1">
                       <h2 className="text-lg font-semibold text-gray-800">{product.name}</h2>
-                      <p className="text-gray-600">${product.price.toFixed(2)}</p>
+                      <p className="text-gray-900 font-medium">TK. {product.price.toFixed(2)}</p>
                       <p className="text-sm text-gray-500">Size: {item.size}</p>
 
                       <div className="flex items-center justify-center sm:justify-start gap-2 mt-2">
@@ -105,6 +107,7 @@ const Cart = () => {
                           </button>
                         </div>
                       </div>
+                    </div>
                     </div>
 
                     <div className="flex flex-row sm:flex-col justify-between items-center sm:w-auto w-full text-right gap-2">
