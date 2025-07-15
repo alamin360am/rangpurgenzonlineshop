@@ -105,7 +105,7 @@ const Products = () => {
          <div className='mb-4'>
            <Title text1={"Related"} text2={"Products"} />
          </div>
-         <RelatedProducts category={productData.category} subCategory={productData.subCategory} />
+         <RelatedProducts category={productData.category} />
        </div>
        </div>       
     </div>

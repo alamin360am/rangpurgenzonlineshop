@@ -20,11 +20,10 @@ const BestSell = () => {
           <p className="text-gray-900 max-w-lg mx-auto">আমাদের গ্রাহকদের সবচেয়ে প্রিয় পণ্যগুলো</p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
           {bestSellingProduct.map((product, index) => (
-            <Link
-             key={product._id}
-             to={`/product/${product._id}`}
+            <div
+             key={product._id}             
              className={`rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300 
                 ${
                     index < 3 ? 
@@ -55,9 +54,9 @@ const BestSell = () => {
                   <span className="text-lg font-bold text-gray-900">৳{product.discountPrice}</span>
                   <span className="text-sm text-gray-500 line-through ml-2">৳{product.price}</span>
                 </div>
-                <p className='text-center bg-gray-900 text-white px-8 py-3 text-sm active:bg-gray-700 uppercase cursor-pointer'>More Details</p>
+                <Link to={`/product/${product._id}`} className='block text-center bg-blue-600 hover:bg-blue-700 text-white px-3 py-3 text-sm active:bg-gray-700 uppercase cursor-pointer'>More Details</Link>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
         

@@ -67,7 +67,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ShopContextProvider>
-      <RouterProvider router={router} />
+      <RouterProvider router={router} scrollRestoration="manual" />
       <ToastContainer />
     </ShopContextProvider>
   </React.StrictMode>
