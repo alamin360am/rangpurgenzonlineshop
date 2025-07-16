@@ -23,7 +23,7 @@ const BestSell = () => {
               <img 
                 src={item.image[0]} 
                 alt={item.name} 
-                className="w-full h-52 object-cover transform transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-42 object-cover transform transition-transform duration-300 group-hover:scale-105"
               />
               <span className="absolute top-3 right-3 text-white text-xs font-semibold px-2 py-1 rounded shadow animate-gradient-x bg-[length:200%_200%] bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
                 {Math.floor(((item.price - item.discountPrice)/item.price) * 100)}% OFF
