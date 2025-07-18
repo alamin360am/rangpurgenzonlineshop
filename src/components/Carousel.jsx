@@ -22,7 +22,7 @@ const Carousel = () => {
     if (isAutoPlaying) {
       interval = setInterval(() => {
         goToNext();
-      }, 3000);
+      }, 2000);
     }
     return () => clearInterval(interval);
   }, [currentIndex, isAutoPlaying]);
@@ -50,12 +50,12 @@ const Carousel = () => {
   if (items.length === 0) return null;
 
   return (
-    <div className="flex justify-center md:pt-30 md:pb-12 pt-20 relative mx-auto overflow-hidden rounded-lg shadow-xl bg-[#fdcb6e]">
+    <div className="flex justify-center md:pt-30 md:pb-12 pb-3 pt-20 px-4 md:px-0 relative mx-auto overflow-hidden rounded-lg shadow-xl bg-[#fdcb6e]">
       <div key={currentIndex}
            className="flex flex-col w-full md:flex-row max-w-6xl transition-all duration-700 ease-in-out transform scale-100 opacity-100">
         
         {/* Left side - Image */}
-        <div className="w-full md:w-1/2 h-64 md:h-96 transition-all duration-700 ease-in-out transform">
+        <div className="w-full md:w-1/2 h-48 md:h-96 transition-all duration-700 ease-in-out transform">
           <img 
             src={items[currentIndex].image[0]} 
             alt={items[currentIndex].name} 
@@ -71,7 +71,7 @@ const Carousel = () => {
           <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
             {items[currentIndex].name}
           </h2>
-          <p className="text-gray-50 mb-6 leading-relaxed">
+          <p className="text-gray-50 mb-6 leading-relaxed hidden sm:block">
             {items[currentIndex].description}
           </p>
           <Link
@@ -85,7 +85,7 @@ const Carousel = () => {
                 <button
                   key={idx}
                   onClick={() => goToSlide(idx)}
-                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  className={`w-1 h-1 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                     idx === currentIndex
                       ? 'bg-gradient-to-r from-blue-600 to-purple-600 scale-125'
                       : 'bg-gray-300'
