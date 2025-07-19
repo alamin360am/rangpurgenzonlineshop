@@ -24,7 +24,7 @@ const ProductItem = ({ item }) => {
       </div>
 
       {/* Content section */}
-      <div className="flex flex-col justify-between flex-grow p-4">
+      <div className="flex flex-col justify-between flex-grow p-2">
         <div>
           <Ratting item={item} />
 
@@ -40,7 +40,7 @@ const ProductItem = ({ item }) => {
 
         <Link 
           to={`/product/${item._id}`} 
-          className="mt-4 text-center bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 text-sm rounded-xl transition-all duration-300"
+          className="text-center bg-blue-600 hover:bg-blue-700 text-white py-2 text-sm rounded-xl transition-all duration-300"
         >
           View Details
         </Link>

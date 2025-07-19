@@ -50,7 +50,7 @@ const Carousel = () => {
   if (items.length === 0) return null;
 
   return (
-    <div className="flex justify-center md:pt-30 md:pb-12 pb-3 pt-20 px-4 md:px-0 relative mx-auto overflow-hidden rounded-lg shadow-xl bg-[#fdcb6e]">
+    <div className="flex justify-center md:pt-30 md:pb-12 pb-2 pt-20 px-4 md:px-0 relative mx-auto overflow-hidden rounded-lg shadow-xl bg-[#fdcb6e]">
       <div key={currentIndex}
            className="flex flex-col w-full md:flex-row max-w-6xl transition-all duration-700 ease-in-out transform scale-100 opacity-100">
         
@@ -65,13 +65,13 @@ const Carousel = () => {
 
         {/* Right side - Content */}
         <div
-          className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center rounded-b-lg md:rounded-r-lg md:rounded-bl-none transition-all duration-700 ease-in-out"
+          className="w-full md:w-1/2 px-6 py-2 md:p-8 flex flex-col justify-center rounded-b-lg md:rounded-r-lg md:rounded-bl-none transition-all duration-700 ease-in-out"
           style={{ backgroundColor: sliderBG(items[currentIndex].category) }}
         >
-          <h2 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">
             {items[currentIndex].name}
           </h2>
-          <p className="text-gray-50 mb-6 leading-relaxed hidden sm:block">
+          <p className="text-gray-50 h-12 sm:h-full overflow-hidden text-sm sm:text-base mb-2 sm:mb-6 leading-relaxed sm:block">
             {items[currentIndex].description}
           </p>
           <Link
@@ -80,7 +80,7 @@ const Carousel = () => {
             >View Product</Link>
 
           {/* Navigation dots */}
-          <div className="flex justify-center mt-8 space-x-2">
+          <div className="flex justify-center mt-3 sm:mt-8 space-x-2">
               {items.map((_, idx) => (
                 <button
                   key={idx}

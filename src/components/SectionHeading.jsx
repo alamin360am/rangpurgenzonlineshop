@@ -36,7 +36,7 @@ const SectionHeading = ({ text1, text2, subtitle }) => {
       </div>
 
       {/* Main heading */}
-      <h2 className="text-xl md:text-3xl font-extrabold text-gray-900  tracking-tight drop-shadow-sm">
+      <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900  tracking-tight drop-shadow-sm">
         <span>{text1} </span>
         <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
           {text2}
