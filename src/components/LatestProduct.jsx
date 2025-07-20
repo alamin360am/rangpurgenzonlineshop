@@ -13,10 +13,10 @@ const LatestProduct = () => {
   return (
     <div>
       <SectionHeading text1={"Latest"} text2={"Products"} subtitle={"Our latest products"} />
-      <section className="py-12 bg-gray-300/50">
+      <section className="py-5 bg-gray-300/50">
       <div className="container mx-auto px-4">
         
-      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6">
         {latestProduct.map((item, index) =>
           <ProductItem key={index} item={item} />
         )}

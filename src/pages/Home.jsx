@@ -13,7 +13,7 @@ const Home = () => {
     <div>
       <Navbar />
       <Carousel />
-      <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+      <div className='px-0 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
         <BestSell></BestSell>
         <LatestProduct></LatestProduct>
       </div>

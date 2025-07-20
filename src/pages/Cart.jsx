@@ -81,9 +81,9 @@ const Cart = () => {
                     />
 
                     <div className="flex-1">
-                      <h2 className="text-lg font-semibold text-gray-800">{product.name}</h2>
-                      <p className="text-gray-900 font-medium">TK. {product.price.toFixed(2)}</p>
-                      <p className="text-sm text-gray-500">Size: {item.size}</p>
+                      <h2 className="text-lg font-semibold text-gray-800 mb-1/2">{product.name}</h2>
+                      <p className="text-gray-900 font-medium mb-1"><span className='text-gray-400'>TK.</span> {product.price.toFixed(2)}/-</p>
+                      <p className="text-sm text-gray-900">Size: <span className='px-1 py-1/2 bg-blue-500 text-white rounded-lg shadow'>{item.size}</span></p>
 
                       <div className="flex items-center justify-center sm:justify-start gap-2 mt-2">
                         <span className="text-gray-500">Quantity:</span>

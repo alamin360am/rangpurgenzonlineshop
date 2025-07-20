@@ -13,9 +13,8 @@ const BestSell = () => {
   return (
     <div>      
         <SectionHeading text1={"Best"} text2={"Selling Products"} subtitle={"Our customers' most favorite products"} />
-      <section className="py-12 bg-gray-300/50">
-      <div className="container mx-auto px-4">
-        
+      <section className="py-5 bg-gray-300/50">
+      <div className="container mx-auto px-4">        
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-6">
           {bestSellingProduct.map((item, index) => (
             <ProductItem key={index} item={item} />

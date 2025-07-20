@@ -65,10 +65,10 @@ const Carousel = () => {
 
         {/* Right side - Content */}
         <div
-          className="w-full md:w-1/2 px-6 py-2 md:p-8 flex flex-col justify-center rounded-b-lg md:rounded-r-lg md:rounded-bl-none transition-all duration-700 ease-in-out"
+          className="w-full md:w-1/2 px-6 py-2 sm:px-12 md:p-8 flex flex-col justify-center rounded-b-lg md:rounded-r-lg md:rounded-bl-none transition-all duration-700 ease-in-out"
           style={{ backgroundColor: sliderBG(items[currentIndex].category) }}
         >
-          <h2 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-800 mb-2 sm:mb-3">
+          <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-2 sm:mb-3">
             {items[currentIndex].name}
           </h2>
           <p className="text-gray-50 h-12 sm:h-full overflow-hidden text-sm sm:text-base mb-2 sm:mb-6 leading-relaxed sm:block">
@@ -99,13 +99,13 @@ const Carousel = () => {
       {/* Navigation arrows */}
       <button
           onClick={goToPrevious}
-          className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 backdrop-blur-md border border-gray-200 text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
+          className="absolute left-3 top-1/2 translate-y-6 bg-white/70 hover:bg-white/90 backdrop-blur-md border border-gray-200 text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
         >
           <ChevronLeft size={20} />
         </button>
         <button
           onClick={goToNext}
-          className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white/90 backdrop-blur-md border border-gray-200 text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
+          className="absolute right-3 top-1/2 translate-y-6 bg-white/70 hover:bg-white/90 backdrop-blur-md border border-gray-200 text-gray-700 rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
         >
           <ChevronRight size={20} />
         </button>

@@ -6,16 +6,13 @@ const ProductItem = ({ item }) => {
   const offer = item.price - item.discountPrice
   const percentage = Math.floor((offer / item.price) * 100)
 
-  console.log(item);
-  
-
   return (
     <div className="flex flex-col rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 bg-white group h-full">
       {/* Image section */}
       <div className="relative overflow-hidden">
         <img 
           src={item.image[0]} 
-          alt={item.name} 
+          alt={item.name}
           className="w-full h-36 md:h-42 object-cover transform transition-transform duration-300 group-hover:scale-105"
         />
         <span className="absolute top-3 -right-8 rotate-45 text-white text-xs font-semibold px-8 py-1 rounded shadow animate-gradient-x bg-[length:200%_200%] bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500">
@@ -25,7 +22,7 @@ const ProductItem = ({ item }) => {
 
       {/* Content section */}
       <div className="flex flex-col justify-between flex-grow p-2">
-        <div>
+        <div className='px-2'>
           <Ratting item={item} />
 
           <h3 className="text-base md:text-lg font-semibold text-gray-800 mt-2 mb-1 line-clamp-2">

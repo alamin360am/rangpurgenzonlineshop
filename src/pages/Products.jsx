@@ -47,7 +47,7 @@ const Products = () => {
                 <img 
                   src={img} 
                   alt={`${productData.name} thumbnail ${index + 1}`} 
-                  className="w-20 h-20 sm:w-24 sm:h-24 object-cover transform hover:scale-105 transition-transform duration-200 ease-in-out"
+                  className="w-full h-20 sm:h-24 object-cover transform hover:scale-105 transition-transform duration-200 ease-in-out"
                 />
               </div>
             ))}
@@ -85,6 +85,7 @@ const Products = () => {
           
           <hr className='mt-8 sm:w-4/5 text-gray-500' />
            <div className='text-sm text-gray-500 mt-5 flex flex-col gap-1'>
+            {/* TODO: Will be changed with API */}
              <p>100% Original product</p>
              <p>Cash on delivery is available for this product</p>
              <p>Easy return and exchange policy within 7 days</p>
@@ -92,8 +93,8 @@ const Products = () => {
         </div>
       </div>
       {/* Description and review */}
-      {/* TODO: will be change and get description and review from api */}
-      <div className="mt-20">
+      {/* TODO: will be change and get description and review from API */}
+      <div className="mt-8">
         <div className="flex">
           <b className='border border-gray-500 px-5 py-3 text-sm'>Description</b>
           <p className='border border-gray-300 px-5 py-3 text-sm'>Reviews</p>
