@@ -19,3 +19,13 @@ a.active hr {display: block;}
   background-size: 200% 200%;
   animation: gradient-x 3s ease infinite;
 }
+
+.input {
+  @apply w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500 shadow-sm transition outline-none
+}
+.btn-primary {
+  @apply px-6 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700 transition cursor-pointer
+}
+.btn-secondary {
+  @apply px-6 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition cursor-pointer
+}

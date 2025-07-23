@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/Context';
 import useTitle from '../hooks/useTitle';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Title from '../components/Title';
 
@@ -9,6 +9,7 @@ const Cart = () => {
   useTitle("Cart");
   const { products, cartItems, updateQuantity } = useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
+  const navigate = useNavigate();
 
   // Build cartData from cartItems
   useEffect(() => {
@@ -144,7 +145,8 @@ const Cart = () => {
                     <span>${total.toFixed(2)}</span>
                   </div>
                 </div>
-                <button className="w-full mt-6 py-3 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition-colors">
+                
+                <button onClick={()=> navigate('/place-order')} className="w-full mt-6 py-3 bg-blue-600 text-white font-bold text-lg rounded-lg hover:bg-blue-700 transition-colors cursor-pointer">
                   Proceed to Checkout
                 </button>
               </div>
