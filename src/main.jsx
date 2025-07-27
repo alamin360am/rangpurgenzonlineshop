@@ -1,74 +1,77 @@
 import * as React from "react";
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import ShopContextProvider from './context/ShopContext.jsx'
-import Main from './layout/Main.jsx'
-import Home from './pages/Home.jsx'
-import About from './pages/About.jsx'
-import Cart from './pages/Cart.jsx'
+import { createRoot } from "react-dom/client";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import NotFoundPage from "./components/NotFoundPage.jsx";
+import ShopContextProvider from "./context/ShopContext.jsx";
+import "./index.css";
+import Main from "./layout/Main.jsx";
+import About from "./pages/About.jsx";
+import Login from "./pages/Auth/Login.jsx";
+import Cart from "./pages/Cart.jsx";
 import Collection from "./pages/Collection.jsx";
 import Contact from "./pages/Contact.jsx";
-import Login from "./pages/Login.jsx";
+import Home from "./pages/Home.jsx";
 import Orders from "./pages/Orders.jsx";
 import PlaceOrder from "./pages/PlaceOrder.jsx";
 import Products from "./pages/Products.jsx";
-import NotFoundPage from "./components/NotFoundPage.jsx";
-import { ToastContainer } from 'react-toastify';
-
+import Signup from "./pages/Auth/Signup.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />
+    element: <Home />,
   },
   {
     // path: "/",
     element: <Main></Main>,
-    errorElement: <NotFoundPage/>,
+    errorElement: <NotFoundPage />,
     children: [
       {
         path: "/about",
-        element: <About/>
+        element: <About />,
       },
       {
         path: "/cart",
-        element: <Cart/>
+        element: <Cart />,
       },
       {
         path: "/collection",
-        element: <Collection/>
+        element: <Collection />,
       },
       {
         path: "/contact",
-        element: <Contact/>
-      },
-      {
-        path: "/login",
-        element: <Login/>
+        element: <Contact />,
       },
       {
         path: "/orders",
-        element: <Orders/>
+        element: <Orders />,
       },
       {
         path: "/place-order",
-        element: <PlaceOrder/>
+        element: <PlaceOrder />,
       },
       {
         path: "/product/:id",
-        element: <Products/>
-      }
-    ]
-  }
-])
+        element: <Products />,
+      },
+    ],
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/signup",
+    element: <Signup />,
+  },
+]);
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ShopContextProvider>
       <RouterProvider router={router} scrollRestoration="manual" />
       <ToastContainer />
     </ShopContextProvider>
   </React.StrictMode>
-)
+);
