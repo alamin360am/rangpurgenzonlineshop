@@ -1,7 +1,9 @@
 import useTitle from "../../Hooks/useTitle";
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useLocation, useNavigate } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import { useState } from "react";
+import { toast } from "react-toastify";
+import axiosInstance from "../../utils/axiosInstance";
 
 const Login = () => {
   useTitle("Log In");
@@ -13,6 +15,11 @@ const Login = () => {
     password: '',
     remember: false
   });
+
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
+
 
   const validateForm = () => {
     const newErrors = {};
@@ -34,16 +41,28 @@ const Login = () => {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     if (validateForm()) {
-      setIsSubmitting(true);
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Form submitted:', formData);
+      try {
+        setIsSubmitting(true);
+        const response = await axiosInstance.post('/user/signin', {email: formData.email, password: formData.password});
+        if(response.data) {
+          if(response.data.user.verified) {
+            setIsSubmitting(false); 
+            toast.success("Log in successfully")
+            navigate(from);
+          } else {
+            toast.error("Please verify your email first");
+            navigate('/verify-otp')
+          }
+          
+        }
+      } catch (error) {
+        toast.error(error.response?.data?.message || 'Something went wrong');
+      } finally {
         setIsSubmitting(false);
-        // Here you would typically redirect or show success message
-      }, 1500);
+      }
     }
   };
 
@@ -54,7 +73,6 @@ const Login = () => {
       [name]: type === 'checkbox' ? checked : value
     });
 
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors({
         ...errors,
