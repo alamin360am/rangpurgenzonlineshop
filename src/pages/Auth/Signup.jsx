@@ -1,29 +1,29 @@
 import { FiUser, FiMail, FiPhone, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import useTitle from "../../Hooks/useTitle";
-import { Link, NavLink } from 'react-router-dom'
-import { assets } from "../../assets/assets";
+import { Link } from 'react-router-dom'
 import { useState } from "react";
+import { useAuthStore } from "../../store/useAuthStore";
 
 const Signup = () => {
   useTitle("Sign Up");
   const [errors, setErrors] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
+  const [terms, setTerms] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formdata, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    password: '',
-    confirmPassword: '',
-    terms: false
+    password: ''
   });
+
+  const {signup, isSigningUp, authMessage} = useAuthStore();
 
   const validateForm = () => {
     const newErrors = {};
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const phoneRegex = /^\+?\d{10,15}$/;
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
 
     if (!formdata.name.trim()) newErrors.name = 'Full name is required';
     else if (formdata.name.length < 3) newErrors.name = 'Name must be at least 3 characters';
@@ -35,29 +35,18 @@ const Signup = () => {
     else if (!phoneRegex.test(formdata.phone)) newErrors.phone = 'Please enter a valid phone number';
 
     if (!formdata.password) newErrors.password = 'Password is required';
-    else if (!passwordRegex.test(formdata.password)) newErrors.password = 'Password must be at least 8 characters with at least one letter and one number';
 
-    if (!formdata.confirmPassword) newErrors.confirmPassword = 'Please confirm your password';
-    else if (formdata.password !== formdata.confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
+    if (!confirmPassword) newErrors.confirmPassword = 'Please confirm your password';
+    else if (formdata.password !== confirmPassword) newErrors.confirmPassword = 'Passwords do not match';
 
-    if (!formdata.terms) newErrors.terms = 'You must accept the terms and conditions';
+    if (!terms) newErrors.terms = 'You must accept the terms and conditions';
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (validateForm()) {
-      setIsSubmitting(true);
-      // Simulate API call
-      setTimeout(() => {
-        console.log('Form submitted:', formdata);
-        setIsSubmitting(false);
-        // Here you would typically redirect or show success message
-      }, 1500);
-    }
-  };
+
+
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -75,39 +64,17 @@ const Signup = () => {
     }
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    if (validateForm()) {
+      signup(formdata);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="fixed top-0 left-0 z-40 w-full bg-white/80 backdrop-blur shadow-sm px-4 sm:px-8 lg:px-16">
-        <div className="flex justify-between items-center gap-2">
-          {/* Logo */}
-          <Link to="/">
-            <img src={assets.logo} alt="logo" className="w-20 sm:w-32" />
-          </Link>
-
-          {/* Nav Items */}
-          <ul className="flex gap-2 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-700">
-            {["home", "collection"].map((item, idx) => (
-              <NavLink
-                key={idx}
-                to={`/${item === "home" ? "" : item}`}
-                className={({ isActive }) =>
-                  `relative group uppercase tracking-wide ${
-                    isActive ? "text-blue-600" : ""
-                  }`
-                }
-              >
-                <span>{item}</span>
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
-              </NavLink>
-            ))}
-          </ul>
-
-          <NavLink to={'/login'} className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-base font-semibold px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-all duration-300 shadow-md">
-            Log In
-          </NavLink>
-        </div>
-      </nav>
-      
+           
       <div className="pt-24 pb-12 px-4">
         <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-xl p-6 sm:p-8 space-y-6 w-full max-w-lg mx-auto">
           <div className="text-center">
@@ -213,10 +180,10 @@ const Signup = () => {
                 <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                 <input
                   id="confirmPassword"
-                  onChange={handleChange}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
                   name="confirmPassword"
                   type={showConfirmPassword ? "text" : "password"}
-                  value={formdata.confirmPassword}
+                  value={confirmPassword}
                   placeholder="••••••••"
                   className={`pl-10 pr-10 py-2 w-full rounded-lg border ${errors.confirmPassword ? 'border-red-500' : 'border-gray-300'} focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 placeholder-gray-400 text-sm`}
                 />
@@ -236,10 +203,10 @@ const Signup = () => {
               <div className="flex items-center h-5">
                 <input
                   id="terms"
-                  onChange={handleChange}
+                  onChange={(e) => setTerms(e.target.checked)}
                   name="terms"
                   type="checkbox"
-                  checked={formdata.terms}
+                  checked={terms}
                   className="w-4 h-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                 />
               </div>
@@ -253,12 +220,13 @@ const Signup = () => {
 
             {/* Submit Button */}
             <div className="pt-2">
+              <p className="text-xs text-red-500 mb-4">{authMessage}</p>
               <button
                 type="submit"
-                disabled={isSubmitting}
-                className={`w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 shadow-md ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+                disabled={isSigningUp}
+                className={`w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 shadow-md ${isSigningUp ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                {isSubmitting ? (
+                {isSigningUp ? (
                   <span className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

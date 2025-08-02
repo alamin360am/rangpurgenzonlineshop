@@ -16,6 +16,9 @@ import Orders from "./pages/Orders.jsx";
 import PlaceOrder from "./pages/PlaceOrder.jsx";
 import Products from "./pages/Products.jsx";
 import Signup from "./pages/Auth/Signup.jsx";
+import VerifyOTP from "./pages/Auth/VerifyOTP.jsx";
+import ForgotPassword from "./pages/Auth/ForgotPassword.jsx";
+import ResetPassword from "./pages/Auth/ResetPassword.jsx";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +67,18 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+  },
+  {
+    path: "/verify-otp",
+    element: <VerifyOTP />,
+  },
+  {
+    path: "/forget-password",
+    element: <ForgotPassword />,
+  },
+  {
+    path: "/reset-password",
+    element: <ResetPassword />,
   },
 ]);
 

@@ -1,7 +1,6 @@
 import useTitle from "../../Hooks/useTitle";
 import { Link, NavLink } from 'react-router-dom';
 import { FiMail, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
-import { assets } from "../../assets/assets";
 import { useState } from "react";
 
 const Login = () => {
@@ -66,37 +65,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="fixed top-0 left-0 z-40 w-full bg-white/80 backdrop-blur shadow-sm px-4 sm:px-8 lg:px-16">
-        <div className="flex justify-between items-center gap-2">
-          {/* Logo */}
-          <Link to="/">
-            <img src={assets.logo} alt="logo" className="w-20 sm:w-32" />
-          </Link>
-
-          {/* Nav Items */}
-          <ul className="flex gap-2 sm:gap-6 text-xs sm:text-sm font-semibold text-gray-700">
-            {["home", "collection"].map((item, idx) => (
-              <NavLink
-                key={idx}
-                to={`/${item === "home" ? "" : item}`}
-                className={({ isActive }) =>
-                  `relative group uppercase tracking-wide ${
-                    isActive ? "text-blue-600" : ""
-                  }`
-                }
-              >
-                <span>{item}</span>
-                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-blue-600 transition-all group-hover:w-full"></span>
-              </NavLink>
-            ))}
-          </ul>
-
-          <NavLink to={'/signup'} className="bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-base font-semibold px-3 py-2 sm:px-4 sm:py-2 rounded-lg transition-all duration-300 shadow-md">
-            Sign Up
-          </NavLink>
-        </div>
-      </nav>
-      
       <div className="pt-24 pb-12 px-4">
         <div className="bg-white/80 backdrop-blur-md shadow-xl rounded-xl p-6 sm:p-8 space-y-6 w-full max-w-lg mx-auto">
           <div className="text-center">
@@ -166,7 +134,7 @@ const Login = () => {
                 />
                 Remember me
               </label>
-              <Link to="/forgot-password" className="text-sm text-indigo-600 hover:text-indigo-500 font-medium">
+              <Link to="/forget-password" className="text-sm text-indigo-600 hover:text-indigo-500 font-medium">
                 Forgot password?
               </Link>
             </div>
