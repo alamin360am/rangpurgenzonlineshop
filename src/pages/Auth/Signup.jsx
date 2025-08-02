@@ -2,7 +2,8 @@ import { FiUser, FiMail, FiPhone, FiLock, FiEye, FiEyeOff } from "react-icons/fi
 import useTitle from "../../Hooks/useTitle";
 import { Link } from 'react-router-dom'
 import { useState } from "react";
-import { useAuthStore } from "../../store/useAuthStore";
+import axiosInstance from "../../utils/axiosInstance";
+import { toast } from "react-toastify";
 
 const Signup = () => {
   useTitle("Sign Up");
@@ -11,14 +12,13 @@ const Signup = () => {
   const [confirmPassword, setConfirmPassword] = useState('');
   const [terms, setTerms] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formdata, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
     password: ''
   });
-
-  const {signup, isSigningUp, authMessage} = useAuthStore();
 
   const validateForm = () => {
     const newErrors = {};
@@ -64,11 +64,21 @@ const Signup = () => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
-    
-    if (validateForm()) {
-      signup(formdata);
+
+    if(validateForm()) {
+      try {
+        setLoading(true)
+        const response = await axiosInstance.post('/user/signup', formdata);
+        if(response.data) {
+          toast.success("user created successfully")
+        }
+      } catch (error) {
+        toast.error(error.response?.data?.message || 'Something went wrong');
+      } finally {
+        setLoading(false)
+      }
     }
   };
 
@@ -220,13 +230,13 @@ const Signup = () => {
 
             {/* Submit Button */}
             <div className="pt-2">
-              <p className="text-xs text-red-500 mb-4">{authMessage}</p>
+              {/* <p className="text-xs text-red-500 mb-4">{message}</p> */}
               <button
                 type="submit"
-                disabled={isSigningUp}
-                className={`w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 shadow-md ${isSigningUp ? 'opacity-70 cursor-not-allowed' : ''}`}
+                disabled={loading}
+                className={`w-full bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2.5 rounded-lg transition-all duration-300 shadow-md ${loading ? 'opacity-70 cursor-not-allowed' : ''}`}
               >
-                {isSigningUp ? (
+                {loading ? (
                   <span className="flex items-center justify-center">
                     <svg className="animate-spin -ml-1 mr-2 h-4 w-4 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>

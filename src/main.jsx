@@ -19,6 +19,7 @@ import Signup from "./pages/Auth/Signup.jsx";
 import VerifyOTP from "./pages/Auth/VerifyOTP.jsx";
 import ForgotPassword from "./pages/Auth/ForgotPassword.jsx";
 import ResetPassword from "./pages/Auth/ResetPassword.jsx";
+import UserProvider from "./context/UserProvider.jsx";
 
 const router = createBrowserRouter([
   {
@@ -84,9 +85,11 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <ShopContextProvider>
-      <RouterProvider router={router} scrollRestoration="manual" />
-      <ToastContainer />
-    </ShopContextProvider>
+    <UserProvider>
+      <ShopContextProvider>
+        <RouterProvider router={router} scrollRestoration="manual" />
+        <ToastContainer />
+      </ShopContextProvider>
+    </UserProvider>
   </React.StrictMode>
 );

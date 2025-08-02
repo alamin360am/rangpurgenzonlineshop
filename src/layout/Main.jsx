@@ -6,6 +6,7 @@ import SearchBar from '../components/SearchBar'
 import AppWrapper from '../utils/AppWrapper'
 
 const Main = () => {
+
   return (
     <AppWrapper>
       <div className="min-h-screen bg-white">      
