@@ -1,6 +1,6 @@
 import { FiUser, FiMail, FiPhone, FiLock, FiEye, FiEyeOff } from "react-icons/fi";
 import useTitle from "../../Hooks/useTitle";
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useState } from "react";
 import axiosInstance from "../../utils/axiosInstance";
 import { toast } from "react-toastify";
@@ -19,6 +19,8 @@ const Signup = () => {
     phone: '',
     password: ''
   });
+
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const newErrors = {};
@@ -72,7 +74,8 @@ const Signup = () => {
         setLoading(true)
         const response = await axiosInstance.post('/user/signup', formdata);
         if(response.data) {
-          toast.success("user created successfully")
+          toast.success("user created successfully");
+          navigate('/verify-otp')
         }
       } catch (error) {
         toast.error(error.response?.data?.message || 'Something went wrong');

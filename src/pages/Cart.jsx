@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/Context';
-import useTitle from '../hooks/useTitle';
 import { Link, useNavigate } from 'react-router-dom';
 import { RiDeleteBin6Line } from "react-icons/ri";
 import Title from '../components/Title';
+import useTitle from '../Hooks/useTitle';
 
 const Cart = () => {
   useTitle("Cart");

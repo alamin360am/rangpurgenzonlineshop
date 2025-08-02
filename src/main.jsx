@@ -20,11 +20,13 @@ import VerifyOTP from "./pages/Auth/VerifyOTP.jsx";
 import ForgotPassword from "./pages/Auth/ForgotPassword.jsx";
 import ResetPassword from "./pages/Auth/ResetPassword.jsx";
 import UserProvider from "./context/UserProvider.jsx";
+import PrivateRoute from "./routes/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFoundPage />,
   },
   {
     // path: "/",
@@ -49,11 +51,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/orders",
-        element: <Orders />,
+        element: <PrivateRoute><Orders /></PrivateRoute>,
       },
       {
         path: "/place-order",
-        element: <PlaceOrder />,
+        element: <PrivateRoute><PlaceOrder /></PrivateRoute>,
       },
       {
         path: "/product/:id",

@@ -1,10 +1,24 @@
-import React from 'react'
-import { useAuthStore } from '../store/useAuthStore'
-import { Navigate } from 'react-router-dom';
+import { useContext } from "react";
+import { Navigate, useLocation } from "react-router-dom";
+import { UserContext } from "../context/AuthContext";
 
 const PrivateRoute = ({children}) => {
-    const {authUser} = useAuthStore();
-    return authUser ? children : <Navigate to="/login" replace />;
-}
+    const {user, isLoading} = useContext(UserContext);
+    const location = useLocation();
 
-export default PrivateRoute
+    if(isLoading) {
+        return <h1 className="loading">Loading</h1>
+    }
+
+    if (user && !user.verified) {
+        return <Navigate to={'/verify-otp'}></Navigate>;
+    }
+
+    if (user && user.verified) {
+        return children;
+    }
+
+    return <Navigate state={{from: location}} to='/login' replace></Navigate>
+};
+
+export default PrivateRoute;
