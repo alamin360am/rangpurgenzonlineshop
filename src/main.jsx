@@ -21,6 +21,8 @@ import ForgotPassword from "./pages/Auth/ForgotPassword.jsx";
 import ResetPassword from "./pages/Auth/ResetPassword.jsx";
 import UserProvider from "./context/UserProvider.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
+import PublicRoute from "./routes/PublicRoute.jsx";
+import OtpRoute from "./routes/OtpRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -65,15 +67,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/login",
-    element: <Login />,
+    element: <PublicRoute><Login /></PublicRoute>,
   },
   {
     path: "/signup",
-    element: <Signup />,
+    element: <PublicRoute><Signup /></PublicRoute>,
   },
   {
     path: "/verify-otp",
-    element: <VerifyOTP />,
+    element: <OtpRoute><VerifyOTP /></OtpRoute>,
   },
   {
     path: "/forget-password",
